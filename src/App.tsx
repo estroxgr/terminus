@@ -91,6 +91,15 @@ function App() {
             />
           </form>
         </Terminal>
+
+          {/* project details  */}
+        <div className="details">
+          <div className="appname">Hi i'm Draggable ✋</div>
+      
+          <div className="source">
+            Find repository on <a href="https://github.com/estroxgr/terminus">GitHub</a>
+          </div>
+        </div>
       </div>
     </>
   )

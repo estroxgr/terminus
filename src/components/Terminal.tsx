@@ -35,6 +35,7 @@ function Terminal({ title, children, isMax, resize }: TermProps) {
 const style: CSSProperties = {
     transform: 'translate(-50%,-50%)',
     background: "rgba( 0, 0, 0, 0.69 )",
+    zIndex:222,
     boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.27 )",
     backdropFilter: "blur( 18px )",
     WebkitBackdropFilter: "blur( 18px )",
