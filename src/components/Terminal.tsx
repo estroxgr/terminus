@@ -1,4 +1,5 @@
-import { CSSProperties } from "react";
+import { CSSProperties,useRef } from "react";
+import Draggable from "react-draggable";
 
 interface TermProps {
     title: string;
@@ -9,6 +10,8 @@ interface TermProps {
 
 function Terminal({ title, children, isMax, resize }: TermProps) {
 
+    const dragRef = useRef<HTMLDivElement | null>(null)
+
     const size: CSSProperties = {
         maxWidth: '90dvw',
         width: isMax ? '90%' : 500,
@@ -16,13 +19,15 @@ function Terminal({ title, children, isMax, resize }: TermProps) {
 
     }
     return (
-        <div style={{ ...style, ...size }}>
+        <Draggable nodeRef={dragRef as React.RefObject<HTMLElement>} bounds="parent" handle=".titlebar">
+        <div style={{ ...style, ...size }} ref={dragRef} className="terminal">
             <div className="titlebar" onDoubleClick={resize}>
                 {title}
             </div>
 
             {children}
         </div>
+        </Draggable>
     )
 }
 
