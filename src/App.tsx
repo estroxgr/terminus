@@ -5,9 +5,6 @@ import { Command } from "./types"
 
 function App() {
 
-
- 
-
   const [history, setHistory] = useState<Command[]>([
     { input: "", output: '' }
   ]);
@@ -22,9 +19,6 @@ function App() {
     setIsMax(!isMax)
   }
 
-
-
-
   useEffect(() => {
     inputRef.current?.focus();
   }, []);
@@ -35,15 +29,25 @@ function App() {
 
     switch (cmd.toLowerCase()) {
       case "help":
-        output = ''
+        output = `
+
+        - help: Show available commands
+        - cls: Clear the terminal
+        - whoami: Show developer name
+        - 🗓 date: Show current date and time
+        `
         break;
       case "hello":
-        output = "HelloWorld";
+        output = "🌟 HelloWorld";
         break;
       case "date":
         output = new Date().toLocaleString();
         break;
-      case "clear":
+
+        case "whoami":
+          output = "👨🏻‍💻 My name is Alexandros Anastasiadis";
+          break;
+      case "cls":
         setHistory([{ input: "", output: '' }]);
         return;
       default:
@@ -64,28 +68,30 @@ function App() {
 
   return (
     <>
-      <Terminal title="Terminus" isMax={isMax} resize={toggleSize}>
-        <div className="history">
-          {history.map((item, index) => (
-            <div key={index} className="p-43">
-            
-              <div className="ml-4 text-white">{item.output}</div>
-            </div>
-          ))}
-        </div>
+      <div className="desktop">
+        <Terminal title="Terminus" isMax={isMax} resize={toggleSize}>
+          <div className="history">
+            {history.map((item, index) => (
+              <div key={index} className="p-43">
 
-        <form onSubmit={handleSubmit}>
-          <span className="text-green-300 p-43">$</span>
-          <input
-            ref={inputRef}
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            className="text-green-300 p-43"
-            autoFocus
-          />
-        </form>
-      </Terminal>
+                <div className="ml-4 text-white">{item.output}</div>
+              </div>
+            ))}
+          </div>
+
+          <form onSubmit={handleSubmit}>
+            <span className="text-green-300 p-43">$</span>
+            <input
+              ref={inputRef}
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              className="text-green-300 p-43"
+              autoFocus
+            />
+          </form>
+        </Terminal>
+      </div>
     </>
   )
 }
