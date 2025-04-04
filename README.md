@@ -1,54 +1,50 @@
-# React + TypeScript + Vite
+## Terminus
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Draggable terminal component in React + TypeScript.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#### Preview
 
-## Expanding the ESLint configuration
+<img width="350px" style="border-radius:22px;" src="https://raw.githubusercontent.com/estroxgr/terminus/refs/heads/main/preview.png">
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+#### Available Commands
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+| Command   | Desc    | Returns       |
+| ---    | ---   | ---     |
+| **help** | Prints available commands | string |
+| **cls** | Clear the screen | void |
+| **whoami** | Prints author name | string |
+| **date** | Prints local date and time | string |
+
+
+#### Feature Improvements
+
+- Save terminal new location when stop dragged.
+- Update terminal settings via commands.
+- More styles or font selectors.
+
+#### Special thanks to ChatGPT
+
+Because i'm noob in TypeScript , i was struggling with Draggable **nodeRef** type for 5 days. 
+
+Specifically ChatGPT helps me to implement the following interface Props.
 
 ```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+interface TermProps {
+    title: string;
+    isMax: boolean;
+    children: React.ReactNode;
+    resize: VoidFunction;
+}
+
+ const dragRef = useRef<HTMLDivElement | null>(null)
+
 ```
+
+
+
+#### Contribute
+
+😉 Feel free to change and improve this project.

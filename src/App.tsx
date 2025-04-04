@@ -34,7 +34,7 @@ function App() {
         - help: Show available commands
         - cls: Clear the terminal
         - whoami: Show developer name
-        - 🗓 date: Show current date and time
+        - date: Show current date and time
         `
         break;
       case "hello":
