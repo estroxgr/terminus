@@ -3,12 +3,12 @@
 Draggable terminal component in React + TypeScript.
 
 
-#### Preview
+### Preview
 
 <img width="350px" style="border-radius:22px;" src="https://raw.githubusercontent.com/estroxgr/terminus/refs/heads/main/preview.png">
 
 
-#### Available Commands
+### Available Commands
 
 | Command   | Desc    | Returns       |
 | ---    | ---   | ---     |
@@ -18,13 +18,13 @@ Draggable terminal component in React + TypeScript.
 | **date** | Prints local date and time | string |
 
 
-#### Feature Improvements
+### Feature Improvements
 
 - Save terminal new location when stop dragged.
 - Update terminal settings via commands.
 - More styles or font selectors.
 
-#### Special thanks to ChatGPT
+### Special thanks to ChatGPT
 
 Because i'm noob in TypeScript , i was struggling with Draggable **nodeRef** type for 5 days. 
 
@@ -45,6 +45,6 @@ interface TermProps {
 
 
 
-#### Contribute
+### Contribute
 
 😉 Feel free to change and improve this project.
